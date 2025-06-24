@@ -1,0 +1,160 @@
+use kec
+switched to db kec
+db createCollection("user")
+SyntaxError: Missing semicolon. (1:2)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m db createCollection([32m"user"[39m)
+ [90m   |[39m   [31m[1m^[22m[39m[0m
+db.createCollection("user")
+{ ok: 1 }
+db.user.insertOne({})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685a267f84b4a71f7cf20c79')
+}
+db.user.insertOne({
+name:"La",
+age:19,
+email:la@gmail.com})
+SyntaxError: Unexpected token, expected "," (4:8)
+
+[0m [90m 2 |[39m name[33m:[39m[32m"La"[39m[33m,[39m
+ [90m 3 |[39m age[33m:[39m[35m19[39m[33m,[39m
+[31m[1m>[22m[39m[90m 4 |[39m email[33m:[39mla[33m@[39mgmail[33m.[39mcom})
+ [90m   |[39m         [31m[1m^[22m[39m[0m
+db.user.insertOne({
+name:"La",
+age:19,
+email:"la@gmail.com"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685a26f284b4a71f7cf20c7a')
+}
+db.user.insertMany({
+name:"y",
+age:20,
+email:"y@gmail.com"})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+db.user.insertMany([{
+name:"y",
+age:20,
+email:"y@gmail.com"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2baa84b4a71f7cf20c7b')
+  }
+}
+db.user.insertMany([
+  {name:"y",age:20,email:"y@gmail.com"},
+  {name:"z",age:21,email:"z@gmail.com"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2c0f84b4a71f7cf20c7c'),
+    '1': ObjectId('685a2c0f84b4a71f7cf20c7d')
+  }
+}
+db.user.insertMany([
+  {name:"y",age:20,email:"y@gmail.com"},
+  {name:"z",age:21,email:"z@gmail.com"},
+  {name:"stalin",age:27,email:"stalin@gmail.com"},
+  {name:"kani",age:19,email:"kani@gmail.com"},
+  {name:"lathika",age:19,email:"lathika@gmail.com"},
+  {name:"harsh",age:20,email:"harsh@gmail.com"},
+  {name:"kee",age:20,email:"kee@gmail.com"},
+  {name:"navee",age:21,email:"navee@gmail.com"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2d0f84b4a71f7cf20c7e'),
+    '1': ObjectId('685a2d0f84b4a71f7cf20c7f'),
+    '2': ObjectId('685a2d0f84b4a71f7cf20c80'),
+    '3': ObjectId('685a2d0f84b4a71f7cf20c81'),
+    '4': ObjectId('685a2d0f84b4a71f7cf20c82'),
+    '5': ObjectId('685a2d0f84b4a71f7cf20c83'),
+    '6': ObjectId('685a2d0f84b4a71f7cf20c84'),
+    '7': ObjectId('685a2d0f84b4a71f7cf20c85')
+  }
+}
+db.user.findOne()
+{
+  _id: ObjectId('685a267f84b4a71f7cf20c79')
+}
+db.user.find()
+{
+  _id: ObjectId('685a267f84b4a71f7cf20c79')
+}
+{
+  _id: ObjectId('685a26f284b4a71f7cf20c7a'),
+  name: 'La',
+  age: 19,
+  email: 'la@gmail.com'
+}
+{
+  _id: ObjectId('685a2baa84b4a71f7cf20c7b'),
+  name: 'y',
+  age: 20,
+  email: 'y@gmail.com'
+}
+{
+  _id: ObjectId('685a2c0f84b4a71f7cf20c7c'),
+  name: 'y',
+  age: 20,
+  email: 'y@gmail.com'
+}
+{
+  _id: ObjectId('685a2c0f84b4a71f7cf20c7d'),
+  name: 'z',
+  age: 21,
+  email: 'z@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c7e'),
+  name: 'y',
+  age: 20,
+  email: 'y@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c7f'),
+  name: 'z',
+  age: 21,
+  email: 'z@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c80'),
+  name: 'stalin',
+  age: 27,
+  email: 'stalin@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c81'),
+  name: 'kani',
+  age: 19,
+  email: 'kani@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c82'),
+  name: 'lathika',
+  age: 19,
+  email: 'lathika@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c83'),
+  name: 'harsh',
+  age: 20,
+  email: 'harsh@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c84'),
+  name: 'kee',
+  age: 20,
+  email: 'kee@gmail.com'
+}
+{
+  _id: ObjectId('685a2d0f84b4a71f7cf20c85'),
+  name: 'navee',
+  age: 21,
+  email: 'navee@gmail.com'
+}
+db.user.findOne()
